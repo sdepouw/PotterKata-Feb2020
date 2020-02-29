@@ -1,4 +1,4 @@
-using System;
+using System.Linq;
 
 namespace PotterKata.Core
 {
@@ -8,9 +8,6 @@ namespace PotterKata.Core
 
         public BookSelectionGroup(params DistinctBookSelection[] selections) => _selections = selections;
 
-        public decimal CalculateTotalCost()
-        {
-            throw new NotImplementedException();
-        }
+        public decimal CalculateTotalCost() => _selections.Sum(selection => selection.CalculateCost());
     }
 }
