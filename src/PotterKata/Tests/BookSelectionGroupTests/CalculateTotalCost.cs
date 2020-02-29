@@ -4,7 +4,7 @@ using Xunit;
 
 namespace PotterKata.Tests.BookSelectionGroupTests
 {
-    public class CalculateCost
+    public class CalculateTotalCost
     {
         [Fact]
         public void Returns0GivenNoSelections()
