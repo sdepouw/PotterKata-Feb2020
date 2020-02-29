@@ -10,8 +10,7 @@ namespace PotterKata.Tests
         public void KataExampleCase()
         {
             const decimal expectedTotalCost = 60m;
-            BookSelectionGroup[] groups = new BookSelectionGroupFactory().CreateGroups(1, 2, 2, 3, 3, 4, 4, 5, 5, 6);
-            BookSelectionGroup optimalGroup = groups.Min();
+            BookSelectionGroup optimalGroup = new BookSelectionGroupOptimizer().FindCheapestGroup(1, 2, 2, 3, 3, 4, 4, 5, 5, 6);
 
             decimal totalCost = optimalGroup.CalculateTotalCost();
 

@@ -6,30 +6,29 @@ namespace PotterKata.Tests.BookSelectionGroupFactoryTests
 {
     public class CreateGroups
     {
-        private readonly BookSelectionGroupFactory _factory = new BookSelectionGroupFactory();
+        private readonly BookSelectionGroupOptimizer _factory = new BookSelectionGroupOptimizer();
 
         [Fact]
-        public void ReturnsNoGroupsGivenNoBooks()
+        public void ReturnsNoGroupGivenNoBooks()
         {
-            var groups = _factory.CreateGroups();
+            var group = _factory.FindCheapestGroup();
 
-            Assert.NotNull(groups);
-            Assert.Empty(groups);
+            Assert.Null(group);
         }
 
         [Fact]
         public void RetunsSingleGroupForSingleBook()
         {
-            var groups = _factory.CreateGroups(1);
-            Assert.Single(groups);
+            var group = _factory.FindCheapestGroup(1);
+            Assert.NotNull(group);
         }
 
-        [Fact(Skip = "This is the hard part.")]
-        public void Returns2GroupsFor3Books2Distinct()
+        [Fact(Skip = "The hard part.")]
+        public void ReturnsGroupWithDiscountedSelection()
         {
-            var groups = _factory.CreateGroups(1, 2, 2);
+            var group = _factory.FindCheapestGroup(1, 2, 2);
 
-            Assert.Equal(2, groups.Length);
+            Assert.Equal(2, group.Selections.Count());
         }
     }
 }
