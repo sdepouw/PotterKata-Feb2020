@@ -1,13 +1,12 @@
-using System.Collections.Generic;
 using System.Linq;
 using PotterKata.Core;
 using Xunit;
 
-namespace PotterKata.Tests.BookSelectionTests
+namespace PotterKata.Tests.DistinctBookSelectionTests
 {
     public class CalculateCost
     {
-        private void Test(decimal expected, params int[] books) => Assert.Equal(expected, new BookSelection(books).CalculateCost());
+        private void Test(decimal expected, params int[] books) => Assert.Equal(expected, new DistinctBookSelection(books).CalculateCost());
 
         private void TestDiscount(decimal expectedDiscount, int numberOfDistinctBooks)
         {

@@ -4,9 +4,9 @@ namespace PotterKata.Core
 {
     public class BookSelectionGroup
     {
-        private readonly BookSelection[] _selections;
+        private readonly DistinctBookSelection[] _selections;
 
-        public BookSelectionGroup(params BookSelection[] selections) => _selections = selections;
+        public BookSelectionGroup(params DistinctBookSelection[] selections) => _selections = selections;
 
         public decimal CalculateTotalCost()
         {

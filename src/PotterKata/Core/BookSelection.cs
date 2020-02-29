@@ -3,11 +3,11 @@ using System.Linq;
 
 namespace PotterKata.Core
 {
-    public class BookSelection
+    public class DistinctBookSelection
     {
         private readonly int[] _books;
 
-        public BookSelection(params int[] books)
+        public DistinctBookSelection(params int[] books)
         {
             if (books.Distinct().Count() != books.Count())
             {
