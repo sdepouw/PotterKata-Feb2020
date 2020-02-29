@@ -5,7 +5,7 @@ namespace PotterKata.Core
 {
     public class DiscountOptimizer
     {
-        public BookSelectionGroup SelectOptimalCollection(List<BookSelectionGroup> groups)
+        public BookSelectionGroup SelectOptimalGroup(List<BookSelectionGroup> groups)
         {
             // TODO: From the given collections, choose the one that produces the lowest price.
             // E.g. if [ [1], [2], [2] ] and [ [1, 2], [2] ] are the given groups

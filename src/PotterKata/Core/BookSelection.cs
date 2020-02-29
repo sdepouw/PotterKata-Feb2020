@@ -8,7 +8,7 @@ namespace PotterKata.Core
 
         public BookSelection(params int[] books) => _books = books;
 
-        public double CalculateCost()
+        public decimal CalculateCost()
         {
             throw new NotImplementedException();
         }
