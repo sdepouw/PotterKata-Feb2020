@@ -7,7 +7,14 @@ namespace PotterKata.Core
     {
         private readonly int[] _books;
 
-        public BookSelection(params int[] books) => _books = books;
+        public BookSelection(params int[] books)
+        {
+            if (books.Distinct().Count() != books.Count())
+            {
+                throw new InvalidOperationException("Distinct collection of books required.");
+            }
+            _books = books;
+        }
 
         public decimal CalculateCost()
         {
@@ -34,10 +41,12 @@ namespace PotterKata.Core
                     discount = .35m;
                     break;
                 default:
-                    discount = 1m;
+                    discount = 0m;
                     break;
             }
-            return 8m * _books.Length * discount;
+            decimal rawCost = 8m * _books.Length;
+            decimal discountCost = rawCost * discount;
+            return rawCost - discountCost;
         }
     }
 }

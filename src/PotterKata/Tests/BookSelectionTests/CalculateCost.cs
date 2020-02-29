@@ -12,7 +12,8 @@ namespace PotterKata.Tests.BookSelectionTests
         private void TestDiscount(decimal expectedDiscount, int numberOfDistinctBooks)
         {
             int[] books = Enumerable.Range(1, numberOfDistinctBooks).ToArray();
-            decimal expected = 8m * numberOfDistinctBooks * expectedDiscount;
+            decimal rawCost = 8m * numberOfDistinctBooks;
+            decimal expected = (rawCost) - (rawCost * expectedDiscount);
             Test(expected, books);
         }
 
@@ -21,9 +22,6 @@ namespace PotterKata.Tests.BookSelectionTests
 
         [Fact]
         public void Be8ForSingleBook() => Test(8m, 1);
-
-        [Fact]
-        public void Be16ForTwoOfTheSameBook() => Test(16m, 1, 1);
 
         [Fact]
         public void Give5PercentOffForTwoDistinct() => TestDiscount(.05m, 2);
@@ -42,8 +40,5 @@ namespace PotterKata.Tests.BookSelectionTests
 
         [Fact]
         public void Give35PercentOffForTwoDistinct() => TestDiscount(.35m, 7);
-
-        [Fact(Skip = "Probably need to re-think classes...")]
-        public void Be60ForExampleCollection() => Test(60m, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7);
     }
 }
