@@ -2,9 +2,9 @@ using System.Linq;
 using PotterKata.Core;
 using Xunit;
 
-namespace PotterKata.Tests.BookSelectionGroupFactoryTests
+namespace PotterKata.Tests.BookSelectionGroupOptimizerTests
 {
-    public class CreateGroups
+    public class FindCheapestGroup
     {
         private readonly BookSelectionGroupOptimizer _factory = new BookSelectionGroupOptimizer();
 
