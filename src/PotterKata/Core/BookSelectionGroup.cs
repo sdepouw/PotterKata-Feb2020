@@ -6,10 +6,11 @@ namespace PotterKata.Core
     public class BookSelectionGroup : IComparable
     {
         private readonly DistinctBookSelection[] _selections;
+        public DistinctBookSelection[] Selections => _selections;
 
         public BookSelectionGroup(params DistinctBookSelection[] selections) => _selections = selections;
 
-        public decimal CalculateTotalCost() => _selections.Sum(selection => selection.CalculateCost());
+        public decimal CalculateTotalCost() => Selections.Sum(selection => selection.CalculateCost());
 
         public int CompareTo(object obj)
         {

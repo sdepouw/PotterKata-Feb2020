@@ -6,6 +6,7 @@ namespace PotterKata.Core
     public class DistinctBookSelection
     {
         private readonly int[] _books;
+        public int[] Books => _books;
 
         public DistinctBookSelection(params int[] books)
         {
@@ -19,7 +20,7 @@ namespace PotterKata.Core
         public decimal CalculateCost()
         {
             decimal discount;
-            int distinctBookCount = _books.Distinct().Count();
+            int distinctBookCount = Books.Distinct().Count();
             switch (distinctBookCount)
             {
                 case 2:
@@ -44,7 +45,7 @@ namespace PotterKata.Core
                     discount = 0m;
                     break;
             }
-            decimal rawCost = 8m * _books.Length;
+            decimal rawCost = 8m * Books.Length;
             decimal discountCost = rawCost * discount;
             return rawCost - discountCost;
         }
