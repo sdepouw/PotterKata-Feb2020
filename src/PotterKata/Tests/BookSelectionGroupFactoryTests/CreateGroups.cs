@@ -21,8 +21,7 @@ namespace PotterKata.Tests.BookSelectionGroupFactoryTests
         public void RetunsSingleGroupForSingleBook()
         {
             var groups = _factory.CreateGroups(1);
-
-            Assert.Equal(1, groups.Length);
+            Assert.Single(groups);
         }
 
         [Fact(Skip = "This is the hard part.")]
