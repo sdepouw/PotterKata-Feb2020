@@ -20,7 +20,7 @@ namespace PotterKata.Tests.BookSelectionGroupTests
         public void ThrowsGivenNonGroupToCompareTo()
         {
             Action compareCall = () => _groupWithNoCost.CompareTo(5);
-            Assert.Throws<InvalidOperationException>(compareCall);
+            Assert.Throws<ArgumentException>(compareCall);
         }
 
         [Fact]

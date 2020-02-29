@@ -19,7 +19,7 @@ namespace PotterKata.Core
             }
             if (!(obj is BookSelectionGroup))
             {
-                throw new InvalidOperationException("Groups can only be compared to other Groups.");
+                throw new ArgumentException("Groups can only be compared to other Groups.", nameof(obj));
             }
             var myCost = CalculateTotalCost();
             var theirCost = ((BookSelectionGroup)obj).CalculateTotalCost();
