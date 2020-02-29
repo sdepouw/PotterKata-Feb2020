@@ -3,12 +3,12 @@ name: Build and Tests
 on: [push]
 
 jobs:
-  build:
-
+  dotnetcore:
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./src/PotterKata
 
     steps:
-    - working-directory: ./src/PotterKata
     - uses: actions/checkout@v2
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
@@ -16,5 +16,7 @@ jobs:
         dotnet-version: '3.1.100'
     - name: Build
       run: dotnet build --configuration Release
+      working-directory: ${{env.working-directory}}
     - name: Unit Tests
       run: dotnet test
+      working-directory: ${{env.working-directory}}
